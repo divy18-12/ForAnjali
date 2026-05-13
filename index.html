@@ -17,21 +17,22 @@
     </div>
   </div>
 
- <audio id="bgMusic" loop>
+<audio id="music" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const music = document.getElementById("bgMusic");
+const music = document.getElementById("music");
 
-function startMusic() {
-    music.play().catch(() => {});
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("touchstart", startMusic);
+function playMusic() {
+    music.play();
+
+    document.removeEventListener("click", playMusic);
+    document.removeEventListener("touchstart", playMusic);
 }
 
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
+document.addEventListener("click", playMusic);
+document.addEventListener("touchstart", playMusic);
 </script>
 
   <div id="petals" aria-hidden="true"></div>
