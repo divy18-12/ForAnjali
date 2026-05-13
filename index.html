@@ -17,7 +17,22 @@
     </div>
   </div>
 
-  <audio id="bgMusic" src="song.mp3"></audio>
+ <audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+function startMusic() {
+    music.play().catch(() => {});
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+</script>
 
   <div id="petals" aria-hidden="true"></div>
   <div id="butterflies" aria-hidden="true"></div>
